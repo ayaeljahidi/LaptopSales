@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Sales Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>💻 Laptop Sales Manager</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="list">All Laptops</button>
+                <button class="nav-btn" data-view="create">Add New Laptop</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading Laptops...</p>
+        </div>
+
+        <!-- List View -->
+        <div id="list-view" class="view">
+            <div class="view-header">
+                <h2>Available Laptops</h2>
+                <div id="laptop-count" class="laptop-count">0 laptops</div>
+            </div>
+            <div id="laptops-grid" class="laptops-grid">
+                <!-- Laptops will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Create/Edit View -->
+        <div id="create-view" class="view hidden">
+            <form id="laptop-form" class="laptop-form">
+                <h2 id="form-title">Add New Laptop</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brand">Brand:</label>
+                        <input type="text" id="brand" name="brand" placeholder="e.g., Apple, Dell, HP" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">Model:</label>
+                        <input type="text" id="model" name="model" placeholder="e.g., MacBook Pro, XPS 13" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Product Title:</label>
+                    <input type="text" id="title" name="title" placeholder="e.g., Apple MacBook Pro 16-inch" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Specifications:</label>
+                    <textarea id="description" name="description" placeholder="Processor, RAM, Storage, Display details..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="processor">Processor:</label>
+                        <input type="text" id="processor" name="processor" placeholder="e.g., Intel i7, Apple M1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ram">RAM (GB):</label>
+                        <input type="number" id="ram" name="ram" min="4" max="64" step="4" placeholder="8" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="storage">Storage:</label>
+                        <input type="text" id="storage" name="storage" placeholder="e.g., 512GB SSD, 1TB HDD" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="display">Display:</label>
+                        <input type="text" id="display" name="display" placeholder="e.g., 14-inch FHD, 16-inch Retina" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUrl">Laptop Image URL:</label>
+                    <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/laptop-image.jpg">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Price ($):</label>
+                        <input type="number" id="price" name="price" step="0.01" min="0" placeholder="999.99" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condition">Condition:</label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Select condition</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Refurbished">Refurbished</option>
+                            <option value="Used">Used</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="userId">Seller ID:</label>
+                    <input type="text" id="userId" name="userId" value="seller001" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Save Laptop</button>
+                    <button type="button" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Detail View -->
+        <div id="detail-view" class="view hidden">
+            <button id="back-btn" class="back-btn">← Back to All Laptops</button>
+            <div id="detail-content" class="detail-content">
+                <!-- Laptop details will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
