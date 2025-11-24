@@ -1,21 +1,22 @@
-# LaptopSales
+# LaptopSales Backend
+
 ---
 
-## 🚀 Installation et démarrage
+## 🚀 Installation and Startup
 
-### 1️⃣ Cloner le repository
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/ayaeljahidi/LaptopSales.git
 ```
 
-### 2️⃣ Accéder au dossier Backend
+### 2️⃣ Navigate to the Backend folder
 
 ```bash
 cd LaptopSales/Backend
 ```
 
-### 3️⃣ Installer les dépendances
+### 3️⃣ Install dependencies
 
 ```bash
 npm install
@@ -23,69 +24,59 @@ npm install
 
 ---
 
-## ⚙️ Configuration de MongoDB
+## ⚙️ MongoDB Configuration
 
-Avant de lancer le serveur, vous devez **configurer la connexion à votre cluster MongoDB**.
+Before starting the server, you need to **configure the connection to your MongoDB cluster**.
 
-Ouvrez le fichier **app.js** et remplacez :
+Open the **app.js** file and replace:
 
 ```js
 mongoose.connect('',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+  .then(() => console.log('Connected to MongoDB successfully!'))
+  .catch(() => console.log('MongoDB connection failed!'));
 ```
 
-Par votre **URL MongoDB** :
+With your **MongoDB URL**:
 
 ```js
 mongoose.connect('YOUR_MONGODB_CLUSTER_URL',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+  .then(() => console.log('Connected to MongoDB successfully!'))
+  .catch(() => console.log('MongoDB connection failed!'));
 ```
 
-### Comment récupérer votre lien MongoDB ?
+### How to get your MongoDB URL
 
-1. Aller sur **MongoDB Atlas**
-2. Sélectionner votre cluster
-3. Cliquer sur **Connect**
-4. Choisir **Connect your application**
-5. Copier l’URL qui ressemble à :
+1. Go to **MongoDB Atlas**
+2. Select your cluster
+3. Click **Connect**
+4. Choose **Connect your application**
+5. Copy the URL that looks like:
 
 ```
 mongodb+srv://<username>:<password>@cluster0.xxxxxx.mongodb.net/<dbname>?retryWrites=true&w=majority
 ```
 
-⚠️ **Important :**
+⚠️ **Important:**
 
-* Remplacer `<username>`, `<password>`, et `<dbname>`
+* Replace `<username>`, `<password>`, and `<dbname>`
+
 ---
 
-## ▶️ Lancer le backend
+## ▶️ Start the Backend
 
-### Mode développement (auto-reload)
+### Development mode (auto-reload)
 
 ```bash
 nodemon server.js
 ```
 
-### Mode production
+### Production mode
 
 ```bash
 node server.js
 ```
 
-Le serveur démarre par défaut sur :
-
-```
-http://localhost:3000
-```
----
-
-## 📝 Notes importantes
-
-* Assurez-vous d’avoir installé **Node.js** et **npm**.
-* Autorisez votre adresse IP dans MongoDB Atlas (Network Access).
