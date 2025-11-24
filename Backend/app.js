@@ -10,7 +10,7 @@ const stuffRoutes = require('./routes/stuff');
 
 
 //mongoDB
-mongoose.connect('mongodb+srv://aya:aya2025@cluster0.3f49kf2.mongodb.net/?appName=Cluster0',
+mongoose.connect('',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
